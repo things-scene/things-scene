@@ -1,5 +1,6 @@
 const { readdirSync, existsSync } = require('fs')
 const path = require('path')
+const { camelCase, startCase } = require('lodash')
 
 const jsPackages = getPackages('js')
 const timestamp = Date.now()
@@ -29,6 +30,198 @@ module.exports = function (plop) {
         base: 'templates/module',
         templateFiles: 'templates/module/**/*',
         force: false
+      }
+    ]
+  })
+
+  plop.setGenerator('component', {
+    description: 'Generate component from scratch',
+    prompts: [
+      {
+        type: 'input',
+        name: 'packageName',
+        message: "What is target package's name? Ex. switch",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: "What should this components's name be? Ex. button",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.js',
+        templateFile: 'templates/component/component.js.hbs',
+        force: false
+      },
+      {
+        type: 'modify',
+        path: 'packages/{{packageName}}/src/index.js',
+        transform: (file, { name }) => {
+          const pascalCaseName = startCase(camelCase(name)).replace(/ /g, '')
+          return file.replace(/^/, `export { default as ${pascalCaseName} } from './${name}'\n`)
+        }
+      }
+    ]
+  })
+
+  plop.setGenerator('html-component', {
+    description: 'Generate component from scratch',
+    prompts: [
+      {
+        type: 'input',
+        name: 'packageName',
+        message: "What is target package's name? Ex. switch",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: "What should this components's name be? Ex. button",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.js',
+        templateFile: 'templates/html-component/component.js.hbs',
+        force: false
+      },
+      {
+        type: 'modify',
+        path: 'packages/{{packageName}}/src/index.js',
+        transform: (file, { name }) => {
+          const pascalCaseName = startCase(camelCase(name)).replace(/ /g, '')
+          return file.replace(/^/, `export { default as ${pascalCaseName} } from './${name}'\n`)
+        }
+      }
+    ]
+  })
+
+  plop.setGenerator('data-source', {
+    description: 'Generate component from scratch',
+    prompts: [
+      {
+        type: 'input',
+        name: 'packageName',
+        message: "What is target package's name? Ex. switch",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: "What should this components's name be? Ex. button",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.js',
+        templateFile: 'templates/data-source/component.js.hbs',
+        force: false
+      },
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.png',
+        templateFile: 'templates/data-source/component.png',
+        force: false
+      },
+      {
+        type: 'modify',
+        path: 'packages/{{packageName}}/src/index.js',
+        transform: (file, { name }) => {
+          const pascalCaseName = startCase(camelCase(name)).replace(/ /g, '')
+          return file.replace(/^/, `export { default as ${pascalCaseName} } from './${name}'\n`)
+        }
+      }
+    ]
+  })
+
+  plop.setGenerator('data-transform', {
+    description: 'Generate component from scratch',
+    prompts: [
+      {
+        type: 'input',
+        name: 'packageName',
+        message: "What is target package's name? Ex. switch",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: "What should this components's name be? Ex. button",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.js',
+        templateFile: 'templates/data-transform/component.js.hbs',
+        force: false
+      },
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.png',
+        templateFile: 'templates/data-transform/component.png',
+        force: false
+      },
+      {
+        type: 'modify',
+        path: 'packages/{{packageName}}/src/index.js',
+        transform: (file, { name }) => {
+          const pascalCaseName = startCase(camelCase(name)).replace(/ /g, '')
+          return file.replace(/^/, `export { default as ${pascalCaseName} } from './${name}'\n`)
+        }
+      }
+    ]
+  })
+
+  plop.setGenerator('container', {
+    description: 'Generate container component from scratch',
+    prompts: [
+      {
+        type: 'input',
+        name: 'packageName',
+        message: "What is target package's name? Ex. switch",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      },
+      {
+        type: 'input',
+        name: 'name',
+        message: "What should this container components's name be? Ex. button",
+        validate: validatePackageName,
+        filter: plop.getHelper('kebabCase')
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'packages/{{packageName}}/src/{{name}}.js',
+        templateFile: 'templates/container/component.js.hbs',
+        force: false
+      },
+      {
+        type: 'modify',
+        path: 'packages/{{packageName}}/src/index.js',
+        transform: (file, { name }) => {
+          const pascalCaseName = startCase(camelCase(name)).replace(/ /g, '')
+          return file.replace(/^/, `export { default as ${pascalCaseName} } from './${name}'\n`)
+        }
       }
     ]
   })
