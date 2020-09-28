@@ -16,6 +16,38 @@ These modules compose together to help you create performant modern JS apps that
 The things-scene repo is managed as a monorepo that is composed of {{jsPackages.length}} npm packages.
 Each package has its own `README.md` and documentation describing usage.
 
+```
+# generate new module (ie. @things-scene/random)
+$ yarn generate app
+  ? What should this module's name be? Ex. random > # type "random"
+
+# generate new component in a module (ie. "button" component in @things-scene/switch module)
+$ yarn generate component
+  ? What is target package's name? Ex. switch > # type "switch"
+  ? What should this component's name be? Ex. button > # type "button"
+
+# generate new container component in a module (ie. "button" container component in @things-scene/switch module)
+$ yarn generate container
+  ? What is target package's name? Ex. switch > # type "switch"
+  ? What should this component's name be? Ex. button > # type "button"
+
+# generate new html-component in a module (ie. "button" html-component in @things-scene/switch module)
+$ yarn generate html-component
+  ? What is target package's name? Ex. switch > # type "switch"
+  ? What should this component's name be? Ex. button > # type "button"
+
+# generate new data-source component in a module (ie. "button" component in @things-scene/switch module)
+$ yarn generate data-source
+  ? What is target package's name? Ex. switch > # type "switch"
+  ? What should this component's name be? Ex. button > # type "button"
+
+# generate new data-transform component in a module (ie. "button" component in @things-scene/switch module)
+$ yarn generate data-transform
+  ? What is target package's name? Ex. switch > # type "switch"
+  ? What should this component's name be? Ex. button > # type "button"
+```
+
+
 ### Package Index
 
 | Package | Version | Description |

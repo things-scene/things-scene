@@ -12,7 +12,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: "What should this module's name be? Ex. menu",
+        message: "What should this module's name be? Ex. random",
         validate: validatePackageName,
         filter: plop.getHelper('kebabCase')
       },
@@ -47,7 +47,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: "What should this components's name be? Ex. button",
+        message: "What should this component's name be? Ex. button",
         validate: validatePackageName,
         filter: plop.getHelper('kebabCase')
       }
@@ -83,7 +83,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: "What should this components's name be? Ex. button",
+        message: "What should this component's name be? Ex. button",
         validate: validatePackageName,
         filter: plop.getHelper('kebabCase')
       }
@@ -119,7 +119,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: "What should this components's name be? Ex. button",
+        message: "What should this component's name be? Ex. button",
         validate: validatePackageName,
         filter: plop.getHelper('kebabCase')
       }
@@ -161,7 +161,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: "What should this components's name be? Ex. button",
+        message: "What should this component's name be? Ex. button",
         validate: validatePackageName,
         filter: plop.getHelper('kebabCase')
       }
@@ -203,7 +203,7 @@ module.exports = function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: "What should this container components's name be? Ex. button",
+        message: "What should this container component's name be? Ex. button",
         validate: validatePackageName,
         filter: plop.getHelper('kebabCase')
       }
