@@ -1,0 +1,25 @@
+{
+  "name": "@things-scene/switch",
+  "description": "switch component for things-scene",
+  "version": "3.0.0-beta.1",
+  "things-scene": true,
+  "main": "src/index.js",
+  "author": "heartyoh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/switch"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*"
+  }
+}

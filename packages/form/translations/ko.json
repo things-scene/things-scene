@@ -1,0 +1,11 @@
+{
+  "label.text-field": "텍스트필드",
+  "label.value-field": "값 필드",
+  "label.started": "자동 시작",
+  "label.controls": "컨트롤 보이기",
+  "label.endpoint": "엔드포인트",
+  "label.namespace": "네임스페이스",
+  "label.soap-action": "SOAP 액션",
+  "label.content-type": "컨텐트 타입",
+  "label.mime-type": "MIME type"
+}

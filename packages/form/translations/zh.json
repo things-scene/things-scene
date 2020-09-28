@@ -1,0 +1,11 @@
+{
+  "label.text-field": "text field",
+  "label.value-field": "value field",
+  "label.started": "auto started",
+  "label.controls": "show controls",
+  "label.endpoint": "endpoint",
+  "label.namespace": "namespace",
+  "label.soap-action": "SOAP Action",
+  "label.content-type": "content type",
+  "label.mime-type": "MIME type"
+}

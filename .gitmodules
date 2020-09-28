@@ -1,0 +1,3 @@
+[submodule "packages/operato-robotics/object-tracker-python"]
+	path = packages/operato-robotics/object-tracker-python
+	url = https://github.com/aidoop/object-tracker-python.git

@@ -1,0 +1,25 @@
+{
+  "name": "@things-scene/random",
+  "version": "3.0.0-beta.1",
+  "description": "An random component for things-scene.",
+  "things-scene": true,
+  "main": "src/index.js",
+  "author": "heartyoh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/random"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*"
+  }
+}

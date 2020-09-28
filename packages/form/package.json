@@ -1,0 +1,30 @@
+{
+  "name": "@things-scene/form",
+  "version": "3.0.0-beta.1",
+  "description": "The HTML Element component for things-scene.",
+  "main": "src/index.js",
+  "things-scene": true,
+  "author": "heartyoh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/form"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "soap": "^0.27.1"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*",
+    "hls.js": "^0.12.2",
+    "tinycolor2": "^1.4.1",
+    "xml-js": "^1.6.11"
+  }
+}
