@@ -1,4 +1,4 @@
-[comment]: # "NOTE: This file is generated and should not be modify directly. Update `templates/ROOT_README.hbs.md` instead"
+[comment]: # 'NOTE: This file is generated and should not be modify directly. Update `templates/ROOT_README.hbs.md` instead'
 
 # Things Scene
 
@@ -13,39 +13,8 @@ These modules compose together to help you create performant modern JS apps that
 
 ## Usage
 
-The things-scene repo is managed as a monorepo that is composed of 1 npm packages.
+The things-scene repo is managed as a monorepo that is composed of 4 npm packages.
 Each package has its own `README.md` and documentation describing usage.
-
-```
-# very first time
-$ yarn install
-$ yarn build # build all packages
-$ DEBUG=things-scene:*,typeorm:* yarn workspace @things-scene/operato-mms run migration
-$ DEBUG=things-scene:* yarn workspace @things-scene/operato-mms run serve:dev
-```
-
-```
-# after a new module package(ie. @things-scene/newbee) added
-$ yarn install # make newbee package join
-$ yarn workspace @things-scene/newbee build
-$ DEBUG=things-scene:* yarn workspace @things-scene/operato-mms run serve:dev
-```
-
-```
-# after a dependent package(ie. @things-scene/dependa) modified
-$ yarn workspace @things-scene/dependa build
-$ DEBUG=things-scene:* yarn workspace @things-scene/operato-mms run serve:dev
-```
-
-```
-# run application (ie. @things-scene/operato-mms) in production mode
-$ yarn workspace @things-scene/dependa build
-$ yarn workspace @things-scene/dependa build:client
-$ yarn workspace @things-scene/operato-mms run serve
-
-# The way to use the config file is the same as before.
-# Don't forget to give a config file to make the app run.
-```
 
 ### Package Index
 
@@ -53,7 +22,10 @@ $ yarn workspace @things-scene/operato-mms run serve
 | ------- | ------- | ----------- |
 
 
+| [form](packages/form) | <a href="https://badge.fury.io/js/%40things-scene%2Fform"><img src="https://badge.fury.io/js/%40things-scene%2Fform.svg" width="200px" /></a> | The HTML Element component for things-scene. |
 | [integration](packages/integration) | <a href="https://badge.fury.io/js/%40things-scene%2Fintegration"><img src="https://badge.fury.io/js/%40things-scene%2Fintegration.svg" width="200px" /></a> | integration component for things-scene |
+| [random](packages/random) | <a href="https://badge.fury.io/js/%40things-scene%2Frandom"><img src="https://badge.fury.io/js/%40things-scene%2Frandom.svg" width="200px" /></a> | An random component for things-scene. |
+| [switch](packages/switch) | <a href="https://badge.fury.io/js/%40things-scene%2Fswitch"><img src="https://badge.fury.io/js/%40things-scene%2Fswitch.svg" width="200px" /></a> | switch component for things-scene |
 
 ## Want to contribute?
 
