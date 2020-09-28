@@ -20,8 +20,6 @@ Each package has its own `README.md` and documentation describing usage.
 
 | Package | Version | Description |
 | ------- | ------- | ----------- |
-
-
 | [form](packages/form) | <a href="https://badge.fury.io/js/%40things-scene%2Fform"><img src="https://badge.fury.io/js/%40things-scene%2Fform.svg" width="200px" /></a> | The HTML Element component for things-scene. |
 | [integration](packages/integration) | <a href="https://badge.fury.io/js/%40things-scene%2Fintegration"><img src="https://badge.fury.io/js/%40things-scene%2Fintegration.svg" width="200px" /></a> | integration component for things-scene |
 | [random](packages/random) | <a href="https://badge.fury.io/js/%40things-scene%2Frandom"><img src="https://badge.fury.io/js/%40things-scene%2Frandom.svg" width="200px" /></a> | An random component for things-scene. |
