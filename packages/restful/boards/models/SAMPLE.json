@@ -1,0 +1,70 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "type": "model-layer",
+  "translate": {
+    "x": 0,
+    "y": 264.53125
+  },
+  "scale": {
+    "x": 0.37864583333333335,
+    "y": 0.37864583333333335
+  },
+  "event": {
+    "hover": {},
+    "tap": {
+      "value": ""
+    }
+  },
+  "components": [
+    {
+      "type": "restful",
+      "xx": 0,
+      "left": 615.5295735900962,
+      "top": 281.36176066024746,
+      "width": 100,
+      "height": 100,
+      "hidden": false,
+      "dataFormat": "json",
+      "rotation": 0,
+      "url": "http://services.groupkt.com/country/get/iso2code/IN",
+      "withCredentials": true,
+      "period": 10,
+      "id": "rest"
+    },
+    {
+      "type": "rect",
+      "xx": 0,
+      "left": 1183.1636863823933,
+      "top": 270.79779917469045,
+      "width": 538.5832187070155,
+      "height": 100,
+      "fillStyle": "#fff",
+      "strokeStyle": "#000",
+      "alpha": 1,
+      "hidden": false,
+      "lineWidth": 1,
+      "lineDash": "solid",
+      "lineCap": "butt",
+      "rotation": 0,
+      "text": "URL",
+      "fontSize": 36,
+      "data": "https://httpbin.org/get",
+      "mappings": [
+        {
+          "rule": "value",
+          "target": "#rest",
+          "property": "value"
+        }
+      ],
+      "id": "url",
+      "event": {
+        "hover": {},
+        "tap": {
+          "target": "$url",
+          "value": "https://httpbin.org/get"
+        }
+      }
+    }
+  ]
+}

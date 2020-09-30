@@ -1,0 +1,25 @@
+{
+  "name": "@things-scene/compass",
+  "description": "Compass Component for things-scene.",
+  "version": "5.0.0-beta.1",
+  "main": "src/index.js",
+  "things-scene": true,
+  "author": "heartyoh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/compass"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*"
+  }
+}

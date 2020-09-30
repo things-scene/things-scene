@@ -1,0 +1,8 @@
+{
+  "keyword": "[ms] keyword",
+  "label.scenario-name": "[ms] Scenario Name",
+  "label.control-type": "[ms] Control Type",
+  "label.init-data-endpoint": "[ms] Initial Data Endpoint",
+  "label.instance-name": "[ms] Instance Name",
+  "label.run-on-start": "[ms] Run on Start"
+}

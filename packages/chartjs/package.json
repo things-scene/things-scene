@@ -1,0 +1,40 @@
+{
+  "name": "@things-scene/chartjs",
+  "description": "Things Scene ChartJS Component",
+  "version": "5.0.0-beta.1",
+  "main": "src/index.js",
+  "things-scene": true,
+  "author": "heartyoh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/chartjs"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@ctrl/tinycolor": "^2.5.2",
+    "@hatiolab/things-scene": "*",
+    "@polymer/iron-icon": "^3.0.1",
+    "@polymer/iron-pages": "^3.0.1",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
+    "@polymer/paper-tabs": "^3.1.0",
+    "@webcomponents/template": "^1.4.0",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "chart.js": "2.7.3",
+    "chartjs-plugin-colorschemes": "^0.4.0",
+    "chartjs-plugin-crosshair": "^1.1.2",
+    "chartjs-plugin-datalabels": "^0.6.0",
+    "core-js": "^3.2.1",
+    "lit-element": "^2.2.1",
+    "regenerator-runtime": "^0.13.3"
+  }
+}

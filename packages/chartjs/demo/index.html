@@ -1,0 +1,547 @@
+<!doctype html>
+<!--
+@license
+Copyright © HatioLab Inc. All rights reserved.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>things-scene-chartjs Demo</title>
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    <link rel="import" href="../bower_components/things-scene-viewer/things-scene-viewer.html">
+    <link rel="import" href="../bower_components/things-scene-viewer/things-scene-layer.html">
+    <link rel="import" href="../bower_components/things-scene-viewer/things-scene-handler.html">
+    <link rel="import" href="../bower_components/things-designer-elements/elements.html">
+    <link rel="import" href="../bower_components/things-scene-modeler/things-scene-properties.html">
+
+    <link rel="import" href="./things-scene-chartjs.html">
+
+    <style is="custom-style">
+
+    @font-face {
+      font-family: "Bitstream Vera Serif Bold";
+      src: url("fonts/VeraSeBd.ttf");
+    }
+
+    things-scene-viewer {
+      display: block;
+      width: 1640px;
+      height: 580px;
+    }
+    </style>
+  </head>
+  <body unresolved>
+
+    <template is="dom-bind" id="app">
+      <p>An example of <code>&lt;things-scene-chartjs&gt;</code>:</p>
+
+      <things-scene-viewer id='scene' scene='{{scene}}' model='[[model]]' selected='{{selected}}'>
+        <things-scene-layer type="selection-layer"></things-scene-layer>
+        <things-scene-layer type="modeling-layer"></things-scene-layer>
+        <things-scene-handler type="text-editor"></things-scene-handler>
+        <things-scene-handler type="move-handler"></things-scene-handler>
+      </things-scene-viewer>
+
+      <button id="change">Change Value</button>
+      <button id="change-model">Change Model</button>
+      <fieldset>
+        <legend>Chart.js properties</legend>
+        <things-scene-properties id="properties"
+                                 scene="[[scene]]"
+                                 selected="[[selected]]"
+                                 model="{{target}}"
+                                 bounds="{{bounds}}"
+                                 props="{{props}}">
+          <things-editor-properties id="properties"
+                                   target="{{target}}"
+                                   props="{{props}}">
+          </things-editor-properties>
+        </things-scene-properties>
+      </fieldset>
+
+    </template>
+    <canvas id="chartCanvas" width="1500" height="1500">
+    </canvas>
+    <script>
+      window.addEventListener('WebComponentsReady', function(e) {
+        var app = document.querySelector('#app')
+
+        app.$.change.addEventListener('click', function() {
+          var viewer = app.$.scene
+
+          app.selected[0].set('data', [
+          	{
+          		"date": "2016-11-10",
+          		"inQty": "712882",
+          		"badQty": "0"
+          	},
+          	{
+          		"date": "2016-11-11",
+          		"inQty": "526234",
+          		"badQty": "0"
+          	},
+          	{
+          		"date": "2016-11-12",
+          		"inQty": "701163",
+          		"badQty": "8837"
+          	}
+          ])
+        })
+        app.$['change-model'].addEventListener('click', function() {
+          var viewer = app.$.scene
+
+          var selected = app.selected[0]
+          var chartModel = JSON.parse(JSON.stringify(selected.model.chart))
+          chartModel.data.datasets.push({
+            label:'add',
+            backgroundColor: 'red',
+            data: []
+          })
+
+          selected.set('chart', chartModel)
+        })
+
+        app.$.properties.addEventListener('change', function(e) {
+          console.log('change', e, app.$.properties.model)
+        })
+
+        Chart.defaults.global.tooltips.mode = 'label';
+
+        app.props = [{
+          type: 'number',
+          label: 'Font Size',
+          name: 'chart.options.fontSize',
+          property: 'number'
+        },{
+          type: 'number',
+          label: 'Width',
+          name: 'width',
+          property: 'number'
+        }, {
+          type: 'number',
+          label: 'Height',
+          name: 'height',
+          property: 'number'
+        }, {
+          type: 'number',
+          label: 'Tension',
+          name: 'chart.data.datasets.0.lineTension',
+          property: 'number'
+        }, {
+          type: 'color',
+          label: 'Border Color',
+          name: 'chart.data.datasets.0.borderColor',
+          property: 'color'
+        }, {
+          type: 'multiple-color',
+          label: 'Background Color',
+          name: 'chart.data.datasets.0.backgroundColor',
+          property: {
+            colorType: 'array'
+          }
+        }, {
+          type: 'number',
+          label: 'Border Width',
+          name: 'chart.data.datasets.0.borderWidth',
+          property: 'number'
+        }, {
+          type: 'color',
+          label: 'Point Border Color',
+          name: 'chart.data.datasets.0.pointBorderColor',
+          property: 'color'
+        }, {
+          type: 'color',
+          label: 'Point Background Color',
+          name: 'chart.data.datasets.0.pointBackgroundColor',
+          property: 'color'
+        }, {
+          type: 'number',
+          label: 'Point Border Width',
+          name: 'chart.data.datasets.0.pointBorderWidth',
+          property: 'number'
+        }, {
+          type: 'number',
+          label: 'Point Radius',
+          name: 'chart.data.datasets.0.pointRadius',
+          property: 'number'
+        }, {
+          type: 'checkbox',
+          label: 'Fill',
+          name: 'chart.data.datasets.0.fill',
+          property: 'checkbox'
+        }, {
+          type: 'checkbox',
+          label: 'X Axis Grid Line',
+          name: 'chart.options.scales.xAxes.0.gridLines.display',
+          property: 'checkbox'
+        }, {
+          type: 'string',
+          label: 'Theme',
+          name: 'chart.options.theme',
+          property: 'string'
+        }, {
+          type: 'checkbox',
+          label: 'Show Legend',
+          name: 'chart.options.legend.display',
+          property: 'checkbox'
+        }, {
+          type: 'string',
+          label: 'Legend Position',
+          name: 'chart.options.legend.position',
+          property: 'string'
+        }, {
+          type: 'checkbox',
+          label: 'is Stacked',
+          name: 'chart.options.stacked',
+          property: 'checkbox'
+        }, {
+          type: 'checkbox',
+          label: 'Multi Axis',
+          name: 'chart.options.multiAxis',
+          property: 'checkbox'
+        }]
+
+        app.model = {
+          width: 1500,
+          height: 1500,
+          components: [{
+            // type: 'chartjs',
+            // top: 200,
+            // left: 300,
+            // width: 200,
+            // height: 200,
+            // fontColor: '#FF0000',
+            // lineWidth: 5,
+            // chart: {
+            //   type: 'bar',
+            //   data: {
+            //     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            //     datasets: [{
+            //       label: '# of Votes',
+            //       data: [],
+            //       backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            //       borderColor:'rgba(255,99,132,1)',
+            //       borderWidth: 1,
+            //       dataKey: 'inQty'
+            //       // ,
+            //       // highlight: {
+            //       //   color: 'rgba(255,255,255,1)',
+            //       //   condition: 'data > 15'
+            //       // }
+            //     }, {
+            //       label: '# of Votes 2',
+            //       data: [],
+            //       backgroundColor: 'rgba(255, 159, 64, 1)',
+            //       borderColor: 'rgba(255, 159, 64, 1)',
+            //       borderWidth: 1,
+            //       dataKey: 'badQty'
+            //     }],
+            //     labelDataKey: 'date'
+            //   },
+            //   options: {
+            //     // displayValue: true,
+            //     displayValue: true,
+            //     stacked: true,
+            //     scales: {
+            //       xAxes: [{
+            //         type: 'category',
+            //         stacked: true,
+            //         gridLines: {
+            //           display: true
+            //         },
+            //         ticks: {
+            //           reverse : true
+            //         }
+            //       }],
+            //       yAxes: [{
+            //         stacked: true
+            //       }]
+            //     },
+            //     legend: {
+            //       display : true
+            //     }
+            //   }
+            // },
+            // data: {
+            //   seriesData : [[1200, 1900, 300, 500, 200, 300], [100, -200, 300, 400, 500, 600]],
+            //   labelData: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"]
+            // }
+          // }, {
+          //   type: 'chartjs',
+          //   top: 400,
+          //   left: 300,
+          //   width: 200,
+          //   height: 200,
+          //   fontColor: '#FF0000',
+          //   lineWidth: 5,
+          //   chart: {
+          //     type: 'horizontalBar',
+          //     data: {
+          //       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          //       datasets: [{
+          //         label: '# of Votes',
+          //         data: [],
+          //         backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          //         borderColor:'rgba(255,99,132,1)',
+          //         borderWidth: 1,
+          //         dataKey: 'inQty'
+          //         // ,
+          //         // highlight: {
+          //         //   color: 'rgba(255,255,255,1)',
+          //         //   condition: 'data > 15'
+          //         // }
+          //       }, {
+          //         label: '# of Votes 2',
+          //         data: [],
+          //         backgroundColor: 'rgba(255, 159, 64, 1)',
+          //         borderColor: 'rgba(255, 159, 64, 1)',
+          //         borderWidth: 1,
+          //         dataKey: 'badQty'
+          //       }],
+          //       labelDataKey: 'date'
+          //     },
+          //     options: {
+          //       // displayValue: true,
+          //       displayValue: true,
+          //       stacked: true,
+          //       scales: {
+          //         yAxes: [{
+          //           // stacked: true,
+          //           gridLines: {
+          //             display: true
+          //           }
+          //         }],
+          //         xAxes: [{
+          //           // stacked: true,
+          //           ticks: {
+          //             beginAtZero: true
+          //           }
+          //         }]
+          //       },
+          //       legend: {
+          //         display : true
+          //       }
+          //     }
+          //   },
+          //   data: {
+          //     seriesData : [[1200, 1900, 300, 500, 200, 300], [100, -200, 300, 400, 500, 600]],
+          //     labelData: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"]
+          //   }
+          }, {
+            "type": "chartjs",
+            "top": 86,
+            "left": 368,
+            "width": 615,
+            "height": 408,
+            "lineWidth": 5,
+            "alpha": 1,
+            "chart": {
+              "type": "bar",
+              "data": {
+                "labels": [],
+                "datasets": [
+                  {
+                    "label": "값",
+                    "type": "line",
+                    "data": [],
+                    "backgroundColor": "rgb(66, 110, 164)",
+                    "borderColor": "rgb(66, 110, 164)",
+                    "borderWidth": 0,
+                    "dataKey": "value",
+                    "yAxisID": "left",
+                    "fill": false,
+                    "lineTension": "0",
+                    "pointBorderColor": "rgb(66, 110, 164)",
+                    "pointBorderWidth": 0,
+                    pointRadius: 4,
+                    "displayValue": true,
+                  },
+                  {
+                    "label": "값 2",
+                    "data": [],
+                    "borderWidth": 0,
+                    "dataKey": "value2",
+                    "yAxisID": "right",
+                    "borderColor": "rgb(253, 12, 12)",
+                    "backgroundColor": "rgb(253, 12, 12)",
+                    "type": "bar"
+                  }
+                ],
+                "labelDataKey": "date"
+              },
+              "options": {
+                "theme": "dark",
+                "legend": {
+                  "display": true,
+                  "position": "top",
+                  "labels": {
+                    "fontColor": "rgba(0, 0, 0, 0.5)"
+                  }
+                },
+                "scales": {
+                  "xAxes": [
+                    {
+                      "gridLines": {
+                        "zeroLineColor": "rgba(0, 0, 0, 0.5)",
+                        "color": "rgba(0, 0, 0, 0.1)"
+                      },
+                      "ticks": {
+                        "fontColor": "rgba(0, 0, 0, 0.5)"
+                      },
+                      "stacked": false
+                    }
+                  ],
+                  "yAxes": [
+                    {
+                      "id": "left",
+                      "position": "left",
+                      "gridLines": {
+                        "zeroLineColor": "rgba(0, 0, 0, 0.5)",
+                        "color": "rgba(0, 0, 0, 0.1)"
+                      },
+                      "ticks": {
+                        "autoMin": true,
+                        "autoMax": true,
+                        "fontColor": "rgba(0, 0, 0, 0.5)",
+                        "stepSize": 200
+                      },
+                      "stacked": false
+                    },
+                    {
+                      "position": "right",
+                      "id": "right",
+                      "ticks": {
+                        "beginAtZero": true,
+                        "fontColor": "rgba(0, 0, 0, 0.5)"
+                      },
+                      "gridLines": {
+                        "zeroLineColor": "rgba(0, 0, 0, 0.5)",
+                        "color": "rgba(0, 0, 0, 0.1)"
+                      },
+                      "stacked": false
+                    }
+                  ]
+                },
+                "tooltips": {
+                  "callbacks": {}
+                },
+                "stacked": false,
+                "multiAxis": true,
+                "defaultFontColor": "rgb(21, 10, 10)"
+              }
+            },
+            "rotation": 0,
+            "id": "chart",
+            "data": [
+              {
+                "__field1": "date",
+                "__field2": "value",
+                "__field3": "value2"
+              },
+              {
+                "__field1": "2017-02-01",
+                "__field2": "812",
+                "__field3": "58"
+              },
+              {
+                "__field1": "2017-02-02",
+                "__field2": "925",
+                "__field3": "71"
+              },
+              {
+                "__field1": "2017-02-03",
+                "__field2": "722",
+                "__field3": "94"
+              },
+              {
+                "__field1": "2017-02-04",
+                "__field2": "",
+                "__field3": ""
+              },
+              {
+                "__field1": "2017-02-05",
+                "__field2": "633",
+                "__field3": "94"
+              },
+              {
+                "__field1": "2017-02-06",
+                "__field2": "631",
+                "__field3": "74"
+              },
+              {
+                "__field1": "2017-02-07",
+                "__field2": "",
+                "__field3": "27"
+              }
+            ]
+          // }, {
+          //   type: 'chartjs',
+          //   top: 0,
+          //   left: 300,
+          //   width: 200,
+          //   height: 200,
+          //   fontColor: '#FF0000',
+          //   lineWidth: 5,
+          //   chart: {
+          //     type: 'doughnut',
+          //     data: {
+          //       labels: [],
+          //       datasets: [{
+          //         data: [],
+          //         backgroundColor: [
+          //           "#FF6384",
+          //           "#36A2EB",
+          //           "#FFCE56"
+          //         ]
+          //       }]
+          //     },
+          //     options: {
+          //       displayValue: true,
+          //       theme : 'dark',
+          //       legend: {
+          //         display: true,
+          //         position: 'top'
+          //       },
+          //       animation:{
+          //         animateScale:true
+          //       }
+          //     }
+          //   },
+          //   data: {
+          //     seriesData: [[300, 50, 100]],
+          //     labelData: [
+          //       "Red",
+          //       "Blue",
+          //       "Yellow"
+          //     ]
+          //   }
+          }]
+        }
+        // var chartCanvas = document.getElementById("chartCanvas");
+        // var ctx = chartCanvas.getContext("2d");
+        //
+        // var myChart = new Chart(ctx, {
+        //   type: 'bar',
+        //   data: {
+        //     labels: ['Item 1', 'Item 2', 'Item 3'],
+        //     datasets: [
+        //       {
+        //         type: 'bar',
+        //         label: 'Bar Component',
+        //         data: [10, 20, 30],
+        //       },
+        //       {
+        //         type: 'line',
+        //         label: 'Line Component',
+        //         data: [30, 20, 10],
+        //       }
+        //     ]
+        //   }
+        // });
+      });
+
+    </script>
+  </body>
+</html>

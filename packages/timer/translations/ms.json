@@ -1,0 +1,9 @@
+{
+  "keyword": "[ms] keyword",
+  "label.days": "[ms] days",
+  "label.hours": "[ms] hours",
+  "label.minutes": "[ms] minutes",
+  "label.seconds": "[ms] seconds",
+  "label.format-run": "[ms] time format",
+  "label.format-stop": "[ms] stopped"
+}

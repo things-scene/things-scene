@@ -1,6 +1,6 @@
 {
   "name": "@things-scene/random",
-  "version": "3.0.0-beta.1",
+  "version": "5.0.0-beta.1",
   "description": "An random component for things-scene.",
   "things-scene": true,
   "main": "src/index.js",

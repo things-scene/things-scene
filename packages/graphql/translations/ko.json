@@ -1,0 +1,7 @@
+{
+  "label.client": "클라이언트 컴포넌트 ID",
+  "label.endpoint": "엔드포인트",
+  "label.auto-start": "자동 시작",
+  "label.period": "Period",
+  "label.query": "Query"
+}

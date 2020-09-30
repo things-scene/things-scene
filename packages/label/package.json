@@ -1,0 +1,28 @@
+{
+  "name": "@things-scene/label",
+  "description": "label component for things-scene",
+  "version": "5.0.0-beta.1",
+  "things-scene": true,
+  "main": "src/index.js",
+  "browser": "src/index.js",
+  "author": "heartyoh",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/label"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*",
+    "@things-factory/barcode-ui": "^3.0.0-beta",
+    "bwip-js": "^1.7.2"
+  }
+}

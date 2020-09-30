@@ -1,0 +1,6 @@
+{
+  "label.camera-x": "[ms] camera X",
+  "label.camera-y": "[ms] camera Y",
+  "label.camera-z": "[ms] camera Z",
+  "label.gamma-factor": "[ms] gamma factor"
+}

@@ -1,0 +1,9 @@
+{
+  "keyword": "keyword",
+  "label.days": "days",
+  "label.hours": "hours",
+  "label.minutes": "minutes",
+  "label.seconds": "seconds",
+  "label.format-run": "time format",
+  "label.format-stop": "stopped"
+}

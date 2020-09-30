@@ -1,0 +1,368 @@
+<!--
+@license
+Copyright © 2017 HatioLab Inc. All rights reserved.  
+-->
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>clone Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+
+    <link rel="import" href="../../things-scene-viewer/things-scene-viewer.html">
+    <link rel="import" href="../../things-scene-viewer/things-scene-layer.html">
+    <link rel="import" href="../../things-scene-viewer/things-scene-handler.html">
+
+    <link rel="import" href="../../things-designer-elements/things-editor-color.html">
+    <link rel="import" href="../../things-designer-elements/things-editor-color-stops.html">
+    <link rel="import" href="../../things-scene-modeler/things-scene-properties.html">
+
+    <link rel="import" href="./things-scene-clone.html">
+
+    <style is="custom-style">
+
+    things-scene-viewer {
+      display: block;
+      width: 100%;
+      height: 800px;
+    }
+    </style>
+  </head>
+  <body unresolved>
+
+    <template is="dom-bind" id="app">
+      <p>An example of <code>&lt;clone&gt;</code>:</p>
+
+      <things-scene-viewer id='scene'
+                           scene='{{scene}}'
+                           selected='{{selected}}'
+                           model='[[model]]'
+                           mode="0">
+        <!-- <things-scene-layer type="selection-layer"></things-scene-layer>
+        <things-scene-layer type="modeling-layer"></things-scene-layer>
+        <things-scene-handler type="text-editor"></things-scene-handler>
+        <things-scene-handler type="move-handler"></things-scene-handler> -->
+      </things-scene-viewer>
+
+      <things-scene-properties scene="[[scene]]"
+                               selected="[[selected]]"
+                               model="{{target}}"
+                               bounds="{{bounds}}">
+        <fieldset class="column-double">
+          <legend>clone style</legend>
+          <label>value</label>
+          <input type="number" value-as-number="{{target.value::change}}" min="0" max="100" step="1"/>
+        </fieldset>
+      </things-scene-properties>
+
+      <input type="button" value="start" onclick="start();"></input>
+      <input type="button" value="stop" onclick="stop();"></input>
+    </template>
+
+    <script>
+      function start() {
+        var app = document.querySelector('#app')
+        app.$.scene.findAll('clone').forEach(function(clone) {
+          clone.started = true;
+        })
+      }
+
+      function stop() {
+        var app = document.querySelector('#app')
+        app.$.scene.findAll('clone').forEach(function(clone) {
+          clone.started = false;
+        })
+      }
+
+      window.addEventListener('WebComponentsReady', function(e) {
+        var app = document.querySelector('#app')
+
+        app.model = {
+          width: 500,
+          height: 500,
+          components: [{
+            type: 'rect',
+            id: 'guider0',
+            left: 500,
+            top: 120,
+            width: 300,
+            height: 250,
+            rotation: -0.3,
+            strokeStyle: 'black'
+          }, {
+            type: 'ellipse',
+            cx : 300,
+            cy : 300,
+            rx: 10,
+            ry: 10,
+            rotation: 1,
+            strokeStyle: 'black',
+            fillStyle: 'blue',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider0',
+                repeat: true,
+                duration: 10000
+              }
+            }
+          }, {
+            type: 'ellipse',
+            id: 'guider1',
+            cx : 250,
+            cy : 200,
+            rx: 200,
+            ry: 100,
+            rotation: 0.2,
+            strokeStyle: 'black'
+          }, {
+            type: 'group',
+            left: 0,
+            top: 0,
+            width: 20,
+            height: 20,
+            components: [{
+              type: 'rect',
+              left: 0,
+              top: 0,
+              rotation: 0,
+              width: 20,
+              height: 20,
+              strokeStyle: 'black',
+              fillStyle: 'red',
+              animation: {
+                oncreate: {
+                  type: 'rotation',
+                  repeat: true,
+                  duration: 800
+                }
+              }
+            }],
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider1',
+                repeat: true,
+                duration: 10000
+              }
+            }
+          }, {
+            type: 'polyline',
+            id: 'guider2',
+            path: [{x:50, y:400}, {x:100, y:700}, {x:250, y:650}, {x:400, y:500}, {x:200, y:450}, {x:800, y:430}],
+            rotation: 0,
+            strokeStyle: '#000000',
+            lineWidth: 1
+          }, {
+            type: 'rect',
+            id: 'target-rect',
+            templatePrefix: 'TT',
+            left: -20,
+            top: -20,
+            rotation: 0,
+            width: 20,
+            height: 20,
+            strokeStyle: 'black',
+            fillStyle: 'yellow',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider2',
+                duration: 4000,
+                repeat: false
+              }
+            }
+          }, {
+            type: 'rect',
+            id: 'target-rect-navy',
+            templatePrefix: 'QQ',
+            left: -20,
+            top: -20,
+            rotation: 0,
+            width: 20,
+            height: 20,
+            strokeStyle: 'black',
+            fillStyle: 'navy',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider2',
+                duration: 4000,
+                repeat: false
+              }
+            }
+          }, {
+            type: 'rect',
+            id: 'target-rect-red',
+            templatePrefix: 'ZZ',
+            left: -20,
+            top: -20,
+            rotation: 0,
+            width: 20,
+            height: 20,
+            strokeStyle: 'black',
+            fillStyle: 'red',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider2',
+                duration: 4000,
+                repeat: false
+              }
+            }
+          }, {
+            type: 'clone',
+            top: 30,
+            left: 10,
+            width: 10,
+            height: 10,
+            strokeStyle: 'navy',
+            fillStyle: 'orange',
+            lineWidth: 1,
+            target: 'target-rect',
+            duration: 500,
+            targetRetention: 4000,
+            autostart: true,
+            repeat: true
+          }, {
+            type: 'clone',
+            top: 50,
+            left: 10,
+            width: 10,
+            height: 10,
+            strokeStyle: 'navy',
+            fillStyle: 'orange',
+            lineWidth: 1,
+            target: 'target-rect-navy',
+            duration: 770,
+            targetRetention: 4000,
+            autostart: true,
+            repeat: true
+          }, {
+            type: 'clone',
+            top: 70,
+            left: 10,
+            width: 10,
+            height: 10,
+            strokeStyle: 'navy',
+            fillStyle: 'orange',
+            lineWidth: 1,
+            target: 'target-rect-red',
+            duration: 660,
+            targetRetention: 4000,
+            autostart: true,
+            repeat: true
+          }, {
+            type: 'polyline',
+            id: 'guider3',
+            path: [{x:150, y:500}, {x:200, y:600}, {x:350, y:750}, {x:500, y:600}, {x:700, y:750}, {x:900, y:530}],
+            rotation: 0,
+            strokeStyle: '#000000',
+            lineWidth: 1
+          }, {
+            type: 'rect',
+            id: 'target-rect-2',
+            templatePrefix: 'AA',
+            left: -20,
+            top: -20,
+            rotation: 0,
+            width: 20,
+            height: 20,
+            strokeStyle: 'black',
+            fillStyle: 'yellow',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider3',
+                duration: 4000,
+                repeat: false
+              }
+            }
+          }, {
+            type: 'rect',
+            id: 'target-rect-navy-2',
+            templatePrefix: 'BB',
+            left: -20,
+            top: -20,
+            rotation: 0,
+            width: 20,
+            height: 20,
+            strokeStyle: 'black',
+            fillStyle: 'navy',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider3',
+                duration: 4000,
+                repeat: false
+              }
+            }
+          }, {
+            type: 'rect',
+            id: 'target-rect-red-2',
+            templatePrefix: 'CC',
+            left: -20,
+            top: -20,
+            rotation: 0,
+            width: 20,
+            height: 20,
+            strokeStyle: 'black',
+            fillStyle: 'red',
+            animation: {
+              oncreate: {
+                type: 'outline',
+                rideOn: 'guider3',
+                duration: 4000,
+                repeat: false
+              }
+            }
+          }, {
+            type: 'clone',
+            top: 90,
+            left: 10,
+            width: 10,
+            height: 10,
+            strokeStyle: 'navy',
+            fillStyle: 'orange',
+            lineWidth: 1,
+            target: 'target-rect-2',
+            duration: 500,
+            targetRetention: 4000,
+            autostart: true,
+            repeat: true
+          }, {
+            type: 'clone',
+            top: 110,
+            left: 10,
+            width: 10,
+            height: 10,
+            strokeStyle: 'navy',
+            fillStyle: 'orange',
+            lineWidth: 1,
+            target: 'target-rect-navy-2',
+            duration: 770,
+            targetRetention: 4000,
+            autostart: true,
+            repeat: true
+          }, {
+            type: 'clone',
+            top: 130,
+            left: 10,
+            width: 10,
+            height: 10,
+            strokeStyle: 'navy',
+            fillStyle: 'orange',
+            lineWidth: 1,
+            target: 'target-rect-red-2',
+            duration: 550,
+            targetRetention: 4000,
+            autostart: true,
+            repeat: true
+          }]
+        };
+      });
+    </script>
+  </body>
+</html>

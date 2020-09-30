@@ -1,0 +1,8 @@
+{
+  "label.monochrome": "[ms] monochrome",
+  "label.symbol": "[ms] symbol",
+  "label.paddingwidth": "[ms] padding-w",
+  "label.paddingheight": "[ms] padding-h",
+  "label.vendor id": "[ms] vendor id",
+  "label.board id": "[ms] board id"
+}

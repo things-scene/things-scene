@@ -1,0 +1,9 @@
+{
+  "keyword": "[ms] keyword",
+  "label.grist-mode": "[ms] mode",
+  "label.target-grist": "[ms] target grist",
+  "label.config": "[ms] config",
+  "label.action": "[ms] action",
+  "label.run-at-startup": "[ms] run at startup",
+  "label.record-adder-format": "[ms] Default when adding row"
+}

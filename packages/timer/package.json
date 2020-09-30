@@ -1,0 +1,25 @@
+{
+  "name": "@things-scene/timer",
+  "description": "timer component for things-scene",
+  "version": "5.0.0-beta.1",
+  "things-scene": true,
+  "main": "src/index.js",
+  "author": "lllleeee",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/timer"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*"
+  }
+}

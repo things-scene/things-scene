@@ -1,0 +1,25 @@
+{
+  "name": "@things-scene/data-transform",
+  "description": "data-transform component for things-scene",
+  "version": "5.0.0-beta.1",
+  "things-scene": true,
+  "main": "src/index.js",
+  "author": "yuneunhye",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "@things-scene:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/things-scene/things-scene.git",
+    "directory": "packages/data-transform"
+  },
+  "scripts": {
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "dependencies": {
+    "@hatiolab/things-scene": "*"
+  }
+}

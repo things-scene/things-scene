@@ -1,0 +1,11 @@
+{
+  "label.text-field": "[ms] text field",
+  "label.value-field": "[ms] value field",
+  "label.started": "[ms] auto started",
+  "label.controls": "[ms] show controls",
+  "label.endpoint": "[ms] endpoint",
+  "label.namespace": "[ms] namespace",
+  "label.soap-action": "[ms] SOAP Action",
+  "label.content-type": "[ms] content type",
+  "label.mime-type": "[ms] MIME type"
+}
