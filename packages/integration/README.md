@@ -17,8 +17,8 @@
 
 ```
 {
-  name: 'mqtt1', // connection name
-  state: 'CONNECTED', // CONNECTED / DISCONNECTED
+  name: 'mqtt1', /* connection name */
+  state: 'CONNECTED', /* 'CONNECTED' | 'DISCONNECTED' */
   timestamp: 4273809748
 }
 ```
