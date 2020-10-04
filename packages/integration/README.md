@@ -66,8 +66,8 @@
 - 현재 실행중인 동일한 이름(instance name)의 시나리오 인스턴스가 없는 경우에만 새로운 시나리오를 시작한다. 주어진 이름의 인스턴스가 없으면, 아무런 동작이 일어나지 않는다.
 - variables(value 속성) 로 주어진 값이 시나리오 시작 시에 variables 변수로 주어진다.
 - properties
-  - instance name : (선택값) 이 이름으로 존재하는 시나리오 인스턴스를 종료시킨다. 이 값을 설정하지 않으면, scenario name 속성값을 사용한다.
-  - scenario name : (선택값) 이 값을 설정하지 않으면, scenario name 속성 값을 시나리오 인스턴스 이름으로 한다.
+  - instance name : (선택값) 이 이름으로 존재하는 시나리오 인스턴스를 종료시킨다. 이 값을 설정하지 않으면, scenario name 속성값을 사용한다. 이 값을 설정하지 않으면, scenario name 속성 값을 시나리오 인스턴스 이름으로 한다.
+  - scenario name : (선택값) instance name 과 scenario name 둘 중 하나는 입력되어야 한다.
 - data
   - scenario-stop 으로 종료된 scenario instance 의 상태값 : 'STOPPED' | 'HALTED'
 
