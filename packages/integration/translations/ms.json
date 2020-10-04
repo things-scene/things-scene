@@ -1,8 +1,9 @@
 {
-  "keyword": "[ms] keyword",
-  "label.scenario-name": "[ms] Scenario Name",
-  "label.control-type": "[ms] Control Type",
-  "label.init-data-endpoint": "[ms] Initial Data Endpoint",
-  "label.instance-name": "[ms] Instance Name",
-  "label.run-on-start": "[ms] Run on Start"
+  "keyword": "keyword",
+  "label.connection-name": "[ms] connection name",
+  "label.scenario-name": "Scenario Name",
+  "label.control-type": "Control Type",
+  "label.init-data-endpoint": "Initial Data Endpoint",
+  "label.instance-name": "Instance Name",
+  "label.run-on-start": "Run on Start"
 }
