@@ -13,7 +13,7 @@ These modules compose together to help you create performant modern JS apps that
 
 ## Usage
 
-The things-scene repo is managed as a monorepo that is composed of 4 npm packages.
+The things-scene repo is managed as a monorepo that is composed of 17 npm packages.
 Each package has its own `README.md` and documentation describing usage.
 
 ```
@@ -52,10 +52,23 @@ $ yarn generate data-transform
 
 | Package | Version | Description |
 | ------- | ------- | ----------- |
+| [chartjs](packages/chartjs) | <a href="https://badge.fury.io/js/%40things-scene%2Fchartjs"><img src="https://badge.fury.io/js/%40things-scene%2Fchartjs.svg" width="200px" /></a> | Things Scene ChartJS Component |
+| [clone](packages/clone) | <a href="https://badge.fury.io/js/%40things-scene%2Fclone"><img src="https://badge.fury.io/js/%40things-scene%2Fclone.svg" width="200px" /></a> | An element providing a starting point for your own reusable Polymer elements. |
+| [compass](packages/compass) | <a href="https://badge.fury.io/js/%40things-scene%2Fcompass"><img src="https://badge.fury.io/js/%40things-scene%2Fcompass.svg" width="200px" /></a> | Compass Component for things-scene. |
+| [data-transform](packages/data-transform) | <a href="https://badge.fury.io/js/%40things-scene%2Fdata-transform"><img src="https://badge.fury.io/js/%40things-scene%2Fdata-transform.svg" width="200px" /></a> | data-transform component for things-scene |
+| [firebase](packages/firebase) | <a href="https://badge.fury.io/js/%40things-scene%2Ffirebase"><img src="https://badge.fury.io/js/%40things-scene%2Ffirebase.svg" width="200px" /></a> | Firebase datasource component for things-scene. |
 | [form](packages/form) | <a href="https://badge.fury.io/js/%40things-scene%2Fform"><img src="https://badge.fury.io/js/%40things-scene%2Fform.svg" width="200px" /></a> | The HTML Element component for things-scene. |
+| [graphql](packages/graphql) | <a href="https://badge.fury.io/js/%40things-scene%2Fgraphql"><img src="https://badge.fury.io/js/%40things-scene%2Fgraphql.svg" width="200px" /></a> | graphql component for things-scene |
+| [grist](packages/grist) | <a href="https://badge.fury.io/js/%40things-scene%2Fgrist"><img src="https://badge.fury.io/js/%40things-scene%2Fgrist.svg" width="200px" /></a> | grist component for things-scene |
 | [integration](packages/integration) | <a href="https://badge.fury.io/js/%40things-scene%2Fintegration"><img src="https://badge.fury.io/js/%40things-scene%2Fintegration.svg" width="200px" /></a> | integration component for things-scene |
+| [label](packages/label) | <a href="https://badge.fury.io/js/%40things-scene%2Flabel"><img src="https://badge.fury.io/js/%40things-scene%2Flabel.svg" width="200px" /></a> | label component for things-scene |
+| [marker](packages/marker) | <a href="https://badge.fury.io/js/%40things-scene%2Fmarker"><img src="https://badge.fury.io/js/%40things-scene%2Fmarker.svg" width="200px" /></a> | An element providing a starting point for your own reusable Polymer elements. |
 | [random](packages/random) | <a href="https://badge.fury.io/js/%40things-scene%2Frandom"><img src="https://badge.fury.io/js/%40things-scene%2Frandom.svg" width="200px" /></a> | An random component for things-scene. |
+| [restful](packages/restful) | <a href="https://badge.fury.io/js/%40things-scene%2Frestful"><img src="https://badge.fury.io/js/%40things-scene%2Frestful.svg" width="200px" /></a> | Restful Client Component for Things Scene |
 | [switch](packages/switch) | <a href="https://badge.fury.io/js/%40things-scene%2Fswitch"><img src="https://badge.fury.io/js/%40things-scene%2Fswitch.svg" width="200px" /></a> | switch component for things-scene |
+| [table](packages/table) | <a href="https://badge.fury.io/js/%40things-scene%2Ftable"><img src="https://badge.fury.io/js/%40things-scene%2Ftable.svg" width="200px" /></a> | Things Scene Table Component. |
+| [timer](packages/timer) | <a href="https://badge.fury.io/js/%40things-scene%2Ftimer"><img src="https://badge.fury.io/js/%40things-scene%2Ftimer.svg" width="200px" /></a> | timer component for things-scene |
+| [visualizer](packages/visualizer) | <a href="https://badge.fury.io/js/%40things-scene%2Fvisualizer"><img src="https://badge.fury.io/js/%40things-scene%2Fvisualizer.svg" width="200px" /></a> | The visualizer component for things-scene. |
 
 ## Want to contribute?
 
