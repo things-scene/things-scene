@@ -20,6 +20,16 @@ const NATURE = {
         withoutAlpha: true,
         valueType: 'hex'
       }
+    },
+    {
+      type: 'checkbox',
+      label: 'submit-on-change',
+      name: 'submitOnChange'
+    },
+    {
+      type: 'checkbox',
+      label: 'spread-on-init',
+      name: 'spreadOnInit'
     }
   ],
   'value-property': 'text'

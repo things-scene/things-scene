@@ -41,6 +41,11 @@ const NATURE = {
       type: 'checkbox',
       label: 'submit-on-change',
       name: 'submitOnChange'
+    },
+    {
+      type: 'checkbox',
+      label: 'spread-on-init',
+      name: 'spreadOnInit'
     }
   ],
   'value-property': 'text'
@@ -67,12 +72,13 @@ export default class Input extends HTMLOverlayElement {
     /* element.property => component.property */
     this.element.onchange = e => {
       this.value = this.element.value
+      // this.data = this.value
     }
   }
 
   /* component.property => element.property */
   setElementProperties(element) {
-    var { name = '', placeholder = '', disabled, readonly, maxlength } = this.state
+    var { name = '', placeholder = '', disabled, readonly, maxlength, spreadOnInit } = this.state
 
     try {
       element.type = this.inputType
@@ -86,16 +92,23 @@ export default class Input extends HTMLOverlayElement {
       error(e)
     }
 
-    this.data = this.value
+    if (spreadOnInit) {
+      this.data = this.value
+    }
   }
 
   onchange(after, before) {
     super.onchange(after, before)
+    var { spreadOnInit, submitOnChange } = this.state
 
     var valueProperty = this.nature['value-property']
     if (valueProperty && valueProperty in after && this.element) {
       this.element.value = after.text
-      if (this.get('submitOnChange') && this.element.form)
+      if (!spreadOnInit) {
+        this.data = this.value
+      }
+
+      if (submitOnChange && this.element.form)
         this.element.form.dispatchEvent(
           new Event('submit', {
             cancelable: true
